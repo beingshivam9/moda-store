@@ -9,7 +9,6 @@ import {
   getDocs,
   query,
   orderBy,
-  limit,
 } from "firebase/firestore";
 
 export default function Home() {
@@ -20,14 +19,13 @@ export default function Home() {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  /* ================= FETCH PRODUCTS (ONE TIME FAST FETCH) ================= */
+  /* ================= FETCH PRODUCTS ================= */
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const q = query(
           collection(db, "products"),
-          orderBy("createdAt", "desc"),
-          limit(8)
+          orderBy("createdAt", "desc")
         );
 
         const snapshot = await getDocs(q);
@@ -39,7 +37,7 @@ export default function Home() {
 
         setProducts(data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching products:", error);
       }
 
       setLoading(false);
@@ -63,11 +61,12 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  /* ================= FILTER PRODUCTS ================= */
   const filteredProducts = products.filter(
-  (p) =>
-    p.category === category &&
-    p.isVisible !== false   // 🔥 hide if false
-);
+    (p) =>
+      p.category === category &&
+      p.isVisible !== false
+  );
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -128,6 +127,7 @@ export default function Home() {
                       : "/placeholder.png"
                   }
                   className="w-full h-56 object-cover"
+                  alt={product.name}
                 />
 
                 <div className="px-2 py-2">
