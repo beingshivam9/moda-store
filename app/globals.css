@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* ================= RESET ================= */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Remove any unexpected overflow gaps */
+#__next {
+  min-height: 100vh;
+}
+
+/* ================= REMOVE ROUNDING ================= */
+
+@layer utilities {
+  .rounded,
+  .rounded-sm,
+  .rounded-md,
+  .rounded-lg,
+  .rounded-xl,
+  .rounded-2xl,
+  .rounded-full {
+    border-radius: 0 !important;
+  }
+}
+
+button,
+img,
+input,
+textarea,
+select {
+  border-radius: 0 !important;
+}
