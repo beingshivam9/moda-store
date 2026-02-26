@@ -71,27 +71,35 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
 
-      {/* HEADER */}
-      <div className="p-4 border-b flex items-center justify-between sticky top-0 bg-white z-40">
-        <div className="text-xl font-semibold tracking-widest text-black">
-          POOJA BOUTIQUE
-        </div>
+    {/* HEADER */}
+<div className="p-4 border-b flex items-center justify-between sticky top-0 bg-white z-40">
+  
+  <button
+  onClick={() => router.push("/")}
+  className="active:opacity-70"
+>
+  <img
+    src="/images/logo.png"
+    alt="Pooja Boutique Logo"
+    className="h-9 object-contain"
+  />
+</button>
 
-        <div className="relative">
-          <button
-            onClick={() => router.push("/cart")}
-            className="text-2xl"
-          >
-            🛒
-          </button>
+  <div className="relative">
+    <button
+      onClick={() => router.push("/cart")}
+      className="text-2xl"
+    >
+      🛒
+    </button>
 
-          {cartCount > 0 && (
-            <div className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center">
-              {cartCount}
-            </div>
-          )}
-        </div>
+    {cartCount > 0 && (
+      <div className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center">
+        {cartCount}
       </div>
+    )}
+  </div>
+</div>
 
       {/* PRODUCTS GRID */}
       <div className="flex-1 p-3 pb-20">

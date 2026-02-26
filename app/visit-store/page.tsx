@@ -41,10 +41,9 @@ export default function VisitStore() {
             </h2>
 
             <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-              Shop No. 6 & 7, Plot No. 36,<br />
-              Om, Shree Dattatray Govingrao Walse Patil Marg,<br />
-              Near Gurudwara, Sector 19,<br />
-              Nerul East, Navi Mumbai,<br />
+             Kajri designer studio,<br />
+              Nerul East, Sector 15,<br />
+              Nerul, Navi Mumbai<br />
               Maharashtra 400706
             </p>
 
@@ -53,14 +52,14 @@ export default function VisitStore() {
             </p>
 
             <p className="mt-1 text-sm text-gray-700">
-              📞 096195 31249
+              📞 063775 08531
             </p>
 
             {/* Get Directions Button */}
             <button
               onClick={() =>
                 window.open(
-                  "https://share.google/imvxRonqE0IoPQI1q",
+                  "https://share.google/c0pSXoVquV6PzbnGA",
                   "_blank"
                 )
               }
